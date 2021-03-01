@@ -53,8 +53,7 @@ class Auth extends JwtHandler{
             } else {
                 return null;
             }
-        }
-        catch(PDOException $e) {
+        } catch(PDOException $e) {
             return null;
         }
     }
