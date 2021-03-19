@@ -25,18 +25,18 @@ $data = json_decode(file_get_contents("php://input"));
 $returnData = [];
 
 try {
-    $selectModels = "SELECT `id_brand`, `model` FROM `model_motorcycles`";
-    $selectModelsStmt = $db->prepare($selectModels);
-    $selectModelsStmt->execute();
-    $rows = $selectModelsStmt->fetchAll(PDO::FETCH_ASSOC);
+    $selectYears = "SELECT `year` FROM `year_motorcycles`";
+    $selectYearsStmt = $db->prepare($selectYears);
+    $selectYearsStmt->execute();
+    $rows = $selectYearsStmt->fetchAll(PDO::FETCH_ASSOC);
 
-    $models = array();
+    $years = array();
 
     foreach($rows as $row) {
-        array_push($models, $row);
+        array_push($years, $row["year"]);
     }
 
-    $returnData = msg(1, 201, "SUCCESS", array($models) );
+    $returnData = msg(1, 201, "SUCCESS", array($years) );
 } catch(PDOException $e) {
     $returnData = msg(0, 500, $e->getMessage());
 }

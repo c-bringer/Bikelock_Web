@@ -18,10 +18,10 @@ class JwtHandler {
         //Set your default time-zone
         date_default_timezone_set('Europe/Paris');
         $this->issuedAt = time();
-        //Token Validity (3600 second = 1hr)
-        $this->expire = $this->issuedAt + 3600;
+        //Token Validity (7884000 second = 3 month)
+        $this->expire = $this->issuedAt + 7884000;
         //Set your secret or signature
-        $this->jwtSecret = "this_is_my_secrect";  
+        $this->jwtSecret = "bikelockSignature";  
     }
 
     //Encoding the token
